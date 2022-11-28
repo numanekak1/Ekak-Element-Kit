@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ekak Element Kit</title>
+    <style>
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        
+        table {
+            background-color: whitesmoke;
+            border-radius: 10px;
+            margin: 10px;
+            width: 98%;
+        }
+        
+        th {
+            margin: 10px 0px 10px 0px;
+            padding: 10px 0px 10px 10px;
+            background: linear-gradient(63deg, #84CAE4 20%, #0697C6);
+            color: Black;
+            text-align: left;
+        }
+        
+        td {
+            padding-left: 10px;
+            margin-top: 10px;
+            padding: 10px 0px 10px 10px;
+        }
+        
+        tr:hover {
+            background-color: #CFCFCF;
+        }
+        
+        .code-text {
+            background-color: white;
+            color: black;
+            padding: 4px;
+            border-radius: 10px 0px 10px 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            width: 98%;
+            height: 200px;
+        }
+        
+        .big-button {
+            background-color: #0697C9;
+            border: none;
+            color: white;
+            padding: 16px 32px 16px 32px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .small-button {
+            background-color: #0697C9;
+            border: 999px;
+            color: white;
+            padding: 11px 18px 11px 18px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .btn-icon {
+            border-radius: 8px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            color: white;
+            background-color: #0697C9;
+            padding-right: 20px;
+            padding-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .icon-btn {
+            color: white;
+            align-items: center;
+            margin-bottom: -1px;
+            padding-left: 4px;
+            padding-right: 7px;
+        }
+        
+        .round-btn-icon {
+            border-radius: 999px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            color: white;
+            background-color: #0697C9;
+            padding-right: 20px;
+            padding-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .round-icon-btn {
+            color: white;
+            align-items: center;
+            margin-bottom: -1px;
+            padding-left: 4px;
+            padding-right: 7px;
+        }
+        
+        .input-field {
+            width: 449px;
+            height: 50px;
+            padding: 11px 21px;
+            border: size 5px;
+            box-sizing: border-box;
+        }
+        
+        .input-field-icon {
+            width: 449px;
+            height: 50px;
+            padding: 11px 21px;
+            border: size 5px;
+            box-sizing: border-box;
+        }
+        /* Switch toggle Start */
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        input:checked+.slider {
+            background-color: #0697C9;
+        }
+        
+        input:focus+.slider {
+            box-shadow: 0 0 1px #0697C9;
+        }
+        
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        /* Rounded sliders */
+        
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        /* Switch toggle End */
+        /* The radio-btn */
+        
+        .radio-btn {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Hide the browser's default radio button */
+        
+        .radio-btn input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        /* Create a custom radio button */
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+        /* On mouse-over, add a grey background color */
+        
+        .radio-btn:hover input~.checkmark {
+            background-color: #ccc;
+        }
+        /* When the radio button is checked, add a blue background */
+        
+        .radio-btn input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        /* Show the indicator (dot/circle) when checked */
+        
+        .radio-btn input:checked~.checkmark:after {
+            display: block;
+        }
+        /* Style the indicator (dot/circle) */
+        
+        .radio-btn .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        /* The checkbox-btn */
+        
+        .checkbox-btn {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Hide the browser's default checkbox */
+        
+        .checkbox-btn input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        /* Create a custom checkbox */
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+        /* On mouse-over, add a grey background color */
+        
+        .checkbox-btn:hover input~.checkmark {
+            background-color: #ccc;
+        }
+        /* When the checkbox is checked, add a blue background */
+        
+        .checkbox-btn input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+        /* Create the checkmark/indicator (hidden when not checked) */
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        /* Show the checkmark when checked */
+        
+        .checkbox-btn input:checked~.checkmark:after {
+            display: block;
+        }
+        /* Style the checkmark/indicator */
+        
+        .checkbox-btn .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        /* Progress Bar Start*/
+        
+        .progress-bar {
+            width: 100%;
+            background-color: whitesmoke;
+        }
+        
+        .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            padding: 5px;
+        }
+        
+        .high {
+            width: 90%;
+            background-color: #0697C9;
+        }
+        
+        .low {
+            width: 10%;
+            background-color: #CC2E2E;
+        }
+        /* Progress Bar End */
+        /* DropDown  Start */
+        
+        .dropbtn {
+            background-color: #0697C9;
+            color: white;
+            border-radius: 5px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+        
+        .dropicon {
+            width: 6px;
+            height: 10.5px;
+        }
+        /* Drop Down ENd */
+        /*Grey Icon Button Start */
+        
+        .icon-box {
+            border-radius: 5px;
+            background-color: grey;
+            padding-top: 17px;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-bottom: 14px;
+        }
+        /*Grey Icon Button End */
+        /*Circle Icon Button Start */
+        
+        .circle-icon-box {
+            border-radius: 100%;
+            background-color: #0697C9;
+            padding-top: 21px;
+            padding-left: 11px;
+            padding-right: 14px;
+            padding-bottom: 12px;
+        }
+        /*Circle Icon Button End */
+        /*Hallow Icon Button Start */
+        
+        .hollow-icon-box {
+            border: 1px solid #0697C9;
+            border-radius: 5px;
+            padding-top: 17px;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-bottom: 14px;
+        }
+        /*Hallow Icon Button End */
+        
+        .message-box {
+            padding: 24px 26px 24px 26px;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+    <h1 style="text-align:center">Ekak UI Kit</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Element
+                </th>
+                <th>
+                    Code / Syntax
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>Big Button</p>
+                    <a href="#" class="big-button">Get started</a>
+
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                            <!-- HTML -->
+                                                <a href="#" class="big-button">Get started</a>
+                             <!-- CSS -->
+                                                .big-button {
+                                                    background-color: #0697C9;
+                                                    border: none;
+                                                    color: white;
+                                                    padding: 16px 32px 16px 32px;
+                                                    border-radius: 10px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 14px;
+                                                    cursor: pointer;
+                                                }
+
+                        </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Small Button</p>
+                    <a href="#" class="small-button">Get started</a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                            <!-- HTML -->
+                                                <a href="#" class="big-button">Get started</a>
+                            <!-- CSS -->    
+                                                .small-button {
+                                                    background-color: #0697C9;
+                                                    border: 999px;
+                                                    color: white;
+                                                    padding: 11px 18px 11px 18px;
+                                                    border-radius: 4px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 14px;
+                                                    cursor: pointer;
+                                                }    
+                                
+                                </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Button With Icon</p>
+
+                    <a href="#" class="btn-icon">
+                        <iconify-icon class="icon-btn" icon="material-symbols:check-circle"></iconify-icon>
+                        Button
+                    </a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <a href="#" class="btn-icon">
+                                                        <iconify-icon class="icon-btn" icon="material-symbols:check-circle"></iconify-icon>
+                                                        Button
+                                                    </a>
+                                <!-- CSS -->    
+                                                    .icon-btn {
+                                                        color: white;
+                                                        align-items: center;
+                                                        margin-bottom: -1px;
+                                                        padding-left: 4px;
+                                                        padding-right: 7px;
+                                                    }
+
+                                                    .btn-icon {
+                                                        border-radius: 8px;
+                                                        padding-top: 9px;
+                                                        padding-bottom: 9px;
+                                                        color: white;
+                                                        background-color: #0697C9;
+                                                        padding-right: 20px;
+                                                        padding-left: 20px;
+                                                        text-decoration: none;
+                                                        font-size: 14px;
+                                                    }   
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Button With Icon</p>
+
+                    <a href="#" class="round-btn-icon">
+                        <iconify-icon class="round-icon-btn" icon="material-symbols:check-circle"></iconify-icon>
+                        Button
+                    </a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <a href="#" class="round-btn-icon">
+                                                        <iconify-icon class="icon-btn" icon="material-symbols:check-circle"></iconify-icon>
+                                                        Button
+                                                    </a>
+                                <!-- CSS -->    
+                                                    .round-btn-icon {
+                                                        border-radius: 999px;
+                                                        padding-top: 9px;
+                                                        padding-bottom: 9px;
+                                                        color: white;
+                                                        background-color: #0697C9;
+                                                        padding-right: 20px;
+                                                        padding-left: 20px;
+                                                        text-decoration: none;
+                                                        font-size: 14px;
+                                                    }
+                                                    
+                                                    .round-icon-btn {
+                                                        color: white;
+                                                        align-items: center;
+                                                        margin-bottom: -1px;
+                                                        padding-left: 4px;
+                                                        padding-right: 7px;
+                                                    }
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">
+
+                    <label for="fname">Input Field</label>
+                    <input class="input-field" type="text" id="fname" name="fname" placeholder="Email *">
+
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <label for="fname">Input Field</label>
+                                                    <input class="input-field" type="text" id="fname" name="fname" placeholder="Email *">
+    
+                                <!-- CSS -->    
+                                                    .input-field {
+                                                        width: 449px;
+                                                        height: 50px;
+                                                        padding: 11px 21px;
+                                                        border: size 5px;
+                                                        box-sizing: border-box;
+                                                    }
+
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Toggle Round Corner</p>
+                    <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                              </label>
+                    <p>Toggler With Corner</p>
+                    <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider"></span>
+                                </label>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <label class="switch">
+                                                        <input type="checkbox" checked>
+                                                        <span class="slider round"></span>
+                                                    </label>
+
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider"></span>
+                                                      </label>
+                                <!-- CSS -->    
+                                                    /* Switch toggle Start */
+                            
+                                                    .switch {
+                                                        position: relative;
+                                                        display: inline-block;
+                                                        width: 60px;
+                                                        height: 34px;
+                                                    }
+                                                    
+                                                    .switch input {
+                                                        opacity: 0;
+                                                        width: 0;
+                                                        height: 0;
+                                                    }
+                                                    
+                                                    .slider {
+                                                        position: absolute;
+                                                        cursor: pointer;
+                                                        top: 0;
+                                                        left: 0;
+                                                        right: 0;
+                                                        bottom: 0;
+                                                        background-color: #ccc;
+                                                        -webkit-transition: .4s;
+                                                        transition: .4s;
+                                                    }
+                                                    
+                                                    .slider:before {
+                                                        position: absolute;
+                                                        content: "";
+                                                        height: 26px;
+                                                        width: 26px;
+                                                        left: 4px;
+                                                        bottom: 4px;
+                                                        background-color: white;
+                                                        -webkit-transition: .4s;
+                                                        transition: .4s;
+                                                    }
+                                                    
+                                                    input:checked+.slider {
+                                                        background-color: #0697C9;
+                                                    }
+                                                    
+                                                    input:focus+.slider {
+                                                        box-shadow: 0 0 1px #0697C9;
+                                                    }
+                                                    
+                                                    input:checked+.slider:before {
+                                                        -webkit-transform: translateX(26px);
+                                                        -ms-transform: translateX(26px);
+                                                        transform: translateX(26px);
+                                                    }
+                                                    /* Rounded sliders */
+                                                    
+                                                    .slider.round {
+                                                        border-radius: 34px;
+                                                    }
+                                                    
+                                                    .slider.round:before {
+                                                        border-radius: 50%;
+                                                    }
+                                                    /* Switch toggle End */
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Radio Button</p>
+                    <label class="radio-btn">Option One
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="radio-btn">Option Two
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="radio-btn">Option  Three
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="radio-btn">Option Four
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                                </label>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                <label class="radio-btn">Option One
+                                                    <input type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                <label class="radio-btn">Option Two
+                                                    <input type="radio" name="radio">
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                <label class="radio-btn">Option  Three
+                                                    <input type="radio" name="radio">
+                                                    <span class="checkmark"></span>
+                                                    </label>
+                                                <label class="radio-btn">Option Four
+                                                    <input type="radio" name="radio">
+                                                    <span class="checkmark"></span>
+                                                    </label> 
+                                <!-- CSS -->    
+                                                /* The radio-btn */
+                        
+                                                .radio-btn {
+                                                    display: block;
+                                                    position: relative;
+                                                    padding-left: 35px;
+                                                    margin-bottom: 12px;
+                                                    cursor: pointer;
+                                                    font-size: 22px;
+                                                    -webkit-user-select: none;
+                                                    -moz-user-select: none;
+                                                    -ms-user-select: none;
+                                                    user-select: none;
+                                                }
+                                                /* Hide the browser's default radio button */
+                                                
+                                                .radio-btn input {
+                                                    position: absolute;
+                                                    opacity: 0;
+                                                    cursor: pointer;
+                                                }
+                                                /* Create a custom radio button */
+                                                
+                                                .checkmark {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    height: 25px;
+                                                    width: 25px;
+                                                    background-color: #eee;
+                                                    border-radius: 50%;
+                                                }
+                                                /* On mouse-over, add a grey background color */
+                                                
+                                                .radio-btn:hover input~.checkmark {
+                                                    background-color: #ccc;
+                                                }
+                                                /* When the radio button is checked, add a blue background */
+                                                
+                                                .radio-btn input:checked~.checkmark {
+                                                    background-color: #2196F3;
+                                                }
+                                                /* Create the indicator (the dot/circle - hidden when not checked) */
+                                                
+                                                .checkmark:after {
+                                                    content: "";
+                                                    position: absolute;
+                                                    display: none;
+                                                }
+                                                /* Show the indicator (dot/circle) when checked */
+                                                
+                                                .radio-btn input:checked~.checkmark:after {
+                                                    display: block;
+                                                }
+                                                /* Style the indicator (dot/circle) */
+                                                
+                                                .radio-btn .checkmark:after {
+                                                    top: 9px;
+                                                    left: 9px;
+                                                    width: 8px;
+                                                    height: 8px;
+                                                    border-radius: 50%;
+                                                    background: white;
+                                                }
+
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Check Boxes</p>
+                    <label class="checkbox-btn">One
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="checkbox-btn">Two
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="checkbox-btn">Three
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                </label>
+                    <label class="checkbox-btn">Four
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                </label>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <label class="checkbox-btn">One
+                                                        <input type="checkbox" checked="checked">
+                                                        <span class="checkmark"></span>
+                                                        </label>
+                                                    <label class="checkbox-btn">Two
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                        </label>
+                                                    <label class="checkbox-btn">Three
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                        </label>
+                                                    <label class="checkbox-btn">Four
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                        </label>
+                                <!-- CSS -->    
+                                                        /* The checkbox-btn */
+                                
+                                                        .checkbox-btn {
+                                                            display: block;
+                                                            position: relative;
+                                                            padding-left: 35px;
+                                                            margin-bottom: 12px;
+                                                            cursor: pointer;
+                                                            font-size: 22px;
+                                                            -webkit-user-select: none;
+                                                            -moz-user-select: none;
+                                                            -ms-user-select: none;
+                                                            user-select: none;
+                                                        }
+                                                        /* Hide the browser's default checkbox */
+                                                        
+                                                        .checkbox-btn input {
+                                                            position: absolute;
+                                                            opacity: 0;
+                                                            cursor: pointer;
+                                                            height: 0;
+                                                            width: 0;
+                                                        }
+                                                        /* Create a custom checkbox */
+                                                        
+                                                        .checkmark {
+                                                            position: absolute;
+                                                            top: 0;
+                                                            left: 0;
+                                                            height: 25px;
+                                                            width: 25px;
+                                                            background-color: #eee;
+                                                        }
+                                                        /* On mouse-over, add a grey background color */
+                                                        
+                                                        .checkbox-btn:hover input~.checkmark {
+                                                            background-color: #ccc;
+                                                        }
+                                                        /* When the checkbox is checked, add a blue background */
+                                                        
+                                                        .checkbox-btn input:checked~.checkmark {
+                                                            background-color: #2196F3;
+                                                        }
+                                                        /* Create the checkmark/indicator (hidden when not checked) */
+                                                        
+                                                        .checkmark:after {
+                                                            content: "";
+                                                            position: absolute;
+                                                            display: none;
+                                                        }
+                                                        /* Show the checkmark when checked */
+                                                        
+                                                        .checkbox-btn input:checked~.checkmark:after {
+                                                            display: block;
+                                                        }
+                                                        /* Style the checkmark/indicator */
+                                                        
+                                                        .checkbox-btn .checkmark:after {
+                                                            left: 9px;
+                                                            top: 5px;
+                                                            width: 5px;
+                                                            height: 10px;
+                                                            border: solid white;
+                                                            border-width: 0 3px 3px 0;
+                                                            -webkit-transform: rotate(45deg);
+                                                            -ms-transform: rotate(45deg);
+                                                            transform: rotate(45deg);
+                                                        }
+
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Progress-Bar</h3>
+                    <p>High Bar</p>
+                    <div class="progress-bar">
+                        <div class="skills high">90%</div>
+                    </div>
+                    <p>Low Bar</p>
+                    <div class="progress-bar">
+                        <div class="skills low">10%</div>
+                    </div>
+
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <div class="progress-bar">
+                                                        <div class="skills high">90%</div>
+                                                    </div>
+                                                    <p>Low Bar</p>
+                                                    <div class="progress-bar">
+                                                        <div class="skills low">10%</div>
+                                                    </div>
+                                <!-- CSS -->    
+                                                    /* Progress Bar Start*/
+                            
+                                                    .progress-bar {
+                                                        width: 100%;
+                                                        background-color: whitesmoke;
+                                                    }
+                                                    
+                                                    .skills {
+                                                        text-align: right;
+                                                        padding-top: 10px;
+                                                        padding-bottom: 10px;
+                                                        color: white;
+                                                        padding: 5px;
+                                                    }
+                                                    
+                                                    .high {
+                                                        width: 90%;
+                                                        background-color: #0697C9;
+                                                    }
+                                                    
+                                                    .low {
+                                                        width: 10%;
+                                                        background-color: #CC2E2E;
+                                                    }
+                                                    /* Progress Bar End */
+                    
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Range-Bar</p>
+                    <input type="range" min="1" max="100" value="50" class="range-slider" id="myRange">
+
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                            <input type="range" min="1" max="100" value="50" class="range-slider" id="myRange">
+
+                                <!-- CSS -->    
+                                               /* None By Default */
+
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>DropDown Button</p>
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown <iconify-icon class='dropdownicon' icon="material-symbols:keyboard-arrow-down-rounded"></iconify-icon></button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                                <!-- HTML -->
+                                                    <div class="dropdown">
+                                                        <button class="dropbtn">Dropdown <iconify-icon class='dropdownicon' icon="material-symbols:keyboard-arrow-down-rounded"></iconify-icon></button>
+                                                        <div class="dropdown-content">
+                                                            <a href="#">Link 1</a>
+                                                            <a href="#">Link 2</a>
+                                                            <a href="#">Link 3</a>
+                                                        </div>
+                                                    </div>
+                                <!-- CSS -->    
+                                                    /* DropDown  Start */
+                            
+                                                    .dropbtn {
+                                                        background-color: #0697C9;
+                                                        color: white;
+                                                        border-radius: 5px;
+                                                        padding-left: 20px;
+                                                        padding-bottom: 10px;
+                                                        padding-top: 10px;
+                                                        font-size: 14px;
+                                                        border: none;
+                                                        cursor: pointer;
+                                                    }
+                                                    
+                                                    .dropdown {
+                                                        position: relative;
+                                                        display: inline-block;
+                                                    }
+                                                    
+                                                    .dropdown-content {
+                                                        display: none;
+                                                        position: absolute;
+                                                        background-color: #f9f9f9;
+                                                        min-width: 160px;
+                                                        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                                                        z-index: 1;
+                                                    }
+                                                    
+                                                    .dropdown-content a {
+                                                        color: black;
+                                                        padding: 12px 16px;
+                                                        text-decoration: none;
+                                                        display: block;
+                                                    }
+                                                    
+                                                    .dropdown-content a:hover {
+                                                        background-color: #f1f1f1
+                                                    }
+                                                    
+                                                    .dropdown:hover .dropdown-content {
+                                                        display: block;
+                                                    }
+                                                    
+                                                    .dropdown:hover .dropbtn {
+                                                        background-color: #3e8e41;
+                                                    }
+                                                    
+                                                    .dropicon {
+                                                        width: 6px;
+                                                        height: 10.5px;
+                                                    }
+                                                    /* Drop Down ENd */
+
+  
+                                    
+                                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Icon Button Box</p> <br>
+                    <a href="#" class="icon-box">
+                        <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:black;"></iconify-icon>
+                    </a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                        <!-- HTML -->
+                                            <a href="#" class="icon-box">
+                                                <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:black;"></iconify-icon>
+                                            </a>                                          
+
+                        <!-- CSS -->
+                                            /*Grey Icon Button Start */
+                            
+                                            .icon-box {
+                                                border-radius: 5px;
+                                                background-color: grey;
+                                                padding-top: 17px;
+                                                padding-left: 14px;
+                                                padding-right: 14px;
+                                                padding-bottom: 14px;
+                                            }
+                                            /*Grey Icon Button End Padding top is +3px because for Icons adjustment*/
+
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Round Icon Button</p>
+                    <br>
+                    <a href="#" class="circle-icon-box">
+                        <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:white; font-size:22px; font-weight: 900;"></iconify-icon>
+                    </a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                        <!-- HTML -->
+                                        <a href="#" class="circle-icon-box">
+                                            <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:white; font-size:22px; font-weight: 900;"></iconify-icon>
+                                        </a>                                        
+                     
+
+                        <!-- CSS -->
+                                        /*Circle Icon Button Start */
+                                        
+                                        .circle-icon-box {
+                                            border-radius: 100%;
+                                            background-color: #0697C9;
+                                            padding-top: 21px;
+                                            padding-left: 11px;
+                                            padding-right: 14px;
+                                            padding-bottom: 12px;
+                                        }
+                                        /*Circle Icon Button End */
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Hollow Button</p>
+                    <br>
+                    <a href="#" class="hollow-icon-box">
+                        <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:#0697C9;"></iconify-icon>
+                    </a>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                        <!-- HTML -->
+                                        <a href="#" class="hollow-icon-box">
+                                            <iconify-icon icon="ic:outline-arrow-back-ios-new" style="color:#0697C9;"></iconify-icon>
+                                        </a>
+
+                        <!-- CSS -->
+                                        /*Hollow Icon Button Start */
+                        
+                                        .hollow-icon-box {
+                                            border: 1px solid #0697C9;
+                                            border-radius: 5px;
+                                            padding-top: 17px;
+                                            padding-left: 14px;
+                                            padding-right: 14px;
+                                            padding-bottom: 14px;
+                                        }
+                                        /*Hollow Icon Button End */                    
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea class="message-box" rows="5" cols="10" class="large-text-area" name="description">Message...</textarea>
+                </td>
+                <td>
+                    <textarea type="text" class="code-text">
+                        <!-- HTML -->
+                                        <text area class="message-box" rows="5" cols="10" class="large-text-area" name="description">Message...</text area>
+                    <!-- CSS -->
+                                        /* Message Box */
+                                        .message-box { padding: 24px 26px 24px 26px; }
+                    </textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+
+</html>
